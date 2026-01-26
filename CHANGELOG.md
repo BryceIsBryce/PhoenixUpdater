@@ -3,6 +3,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.1] - 2026-01-26
+
+### Added
+- Premade Assets template audio tracks: "ColdPresc B.wav", "In Your Office.wav", "darkness music.wav", and "jackinthebox.wav".
+- Premade Assets menu scripts for Main, News, and Warning scenes.
+- Build packaging now supports explicit data files and includes `Core/Scripting/ScriptBlock_API.json`.
+
+### Changed
+- Premade Assets menus reorganized into per-menu subfolders with separate `.pxmenu` and `.pxscr` files.
+- Premade Assets project settings and workspace defaults now seed recent scenes and script workspace tabs.
+- Premade Assets `game.json` now sets the window name to "Premade Assets" and records `EngineInfo.LastOpened`.
+- Runtime now installs `PX_Bluescreen.hook` as `sys.excepthook` to display the bluescreen handler on unhandled exceptions.
+
+### Removed
+- Removed the `AlwaysOnTop` game object property and related serialization/rendering behavior.
+- Removed legacy Premade Assets menu files at `Scenes/Menus/Main.pxmenu` and `Scenes/Menus/Warning.pxmenu` after the menu folder restructure.
+
+### Fixed
+- Script block API documentation file is now bundled in engine builds.
+
 ## [2.0.0-alpha.0] - 2026-01-25
 
 ### Added
