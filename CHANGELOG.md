@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Premade Assets menus reorganized into per-menu subfolders with separate `.pxmenu` and `.pxscr` files.
 - Premade Assets project settings and workspace defaults now seed recent scenes and script workspace tabs.
 - Premade Assets `game.json` now sets the window name to "Premade Assets" and records `EngineInfo.LastOpened`.
-- Runtime now installs `PX_Bluescreen.hook` as `sys.excepthook` to display the bluescreen handler on unhandled exceptions.
+- Runtime now installs `PX_Bluescreen.hook` as `sys.excepthook` for runtime to display the bluescreen handler on unhandled exceptions.
 
 ### Removed
 - Removed the `AlwaysOnTop` game object property and related serialization/rendering behavior.
