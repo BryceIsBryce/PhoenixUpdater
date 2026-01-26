@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.2] - 2026-01-26
+
+### Added
+- Version checking now reads from a bundled `version.txt` when available and can retrieve the latest version from the update feed.
+- Launcher can now start the external updater (`PhoenixEngineBootstrapper.exe`) when an update is available.
+
+### Changed
+- Update button color and click behavior now reflect whether the installed build is out of date.
+- Runtime now installs the bluescreen handler as the default `sys.excepthook` for unhandled exceptions.
+
+### Fixed
+- Version comparison now guards against missing or malformed version strings to avoid startup errors.
+
 ## [2.0.0-alpha.1] - 2026-01-26
 
 ### Added
