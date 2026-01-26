@@ -3,6 +3,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.3] - 2026-01-26
+
+### Added
+- Playtest dialog parameter system with grouped options and new runtime launch settings (target FPS control and exit-on-esc toggle) plus live command previews.
+- Runtime command-line options for `--target-fps` and `--exit-on-esc`.
+- Runtime now fires the `OnGameInitialize` script event on startup.
+- Visual scripting now includes a new "Phoenix Tools" block category with message broadcasts and macro playback blocks.
+- Office editor state environment controls for per-state background (image/animation) and music, with asset picker shortcuts.
+
+### Changed
+- State properties dialog now labels per-state audio as "Music" and uses the music picker.
+- Sounds page combo boxes now preserve existing selections even if the value is not found in the current scan.
+- Status bar version label now reflects the local version string (falls back to `?.?.?` when unknown).
+- Runtime playtest recompile flag is now `--recompile` (reflected in the Playtest dialog).
+
+### Removed
+- Zoo Build template archived out of the built-in templates.
+- Premade Assets template no longer ships a default `Workspace.json`.
+
+### Fixed
+- Color picker dialog now returns the selected color reliably and closes cleanly.
+- Crash report exception text now includes richer inline context for faster debugging.
+- Base page tiles no longer error when background images are missing.
+- Settings initialization now tolerates missing/failed settings schemas without crashing.
+
 ## [2.0.0-alpha.2] - 2026-01-26
 
 ### Added
