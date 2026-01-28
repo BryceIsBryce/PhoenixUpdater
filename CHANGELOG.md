@@ -3,6 +3,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.4] - 2026-01-27
+
+### Added
+- Output Log now loads entries in the background with a visible loading indicator and safe cancel-on-close behavior for large logs.
+- Workspace switching now prompts to save or discard unsaved tabs.
+- Sidebar page switching now warns about unsaved changes before leaving the current editor.
+- Playtest dialog options are now scrollable when more launch settings are available.
+- Phoenix Runtime now uses the dedicated `ICON-R.ico` for its EXE icon.
+
+### Changed
+- Version checking now pulls from the raw update feed for more reliable update detection.
+- New Project creation now removes template workspace layouts so every new project starts with a clean workspace.
+- Animatronic editor now loads AI Level values from legacy keys more reliably and sanitizes invalid numeric values.
+- Pathway editor panels now resize based on the available window height for a more consistent layout.
+- Playtest now defaults “Exit Runtime On Esc” to enabled.
+
+### Fixed
+- Runtime no longer crashes on startup due to a leftover debug exception.
+- Output Log copy actions now include the full message text (even when rich highlighting is used).
+- Sprite animation objects now ignore empty/invalid animation names instead of failing to load.
+
 ## [2.0.0-alpha.3] - 2026-01-26
 
 ### Added
