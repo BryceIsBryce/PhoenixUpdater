@@ -5,15 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [2.0.0-alpha.6] - 2026-06-25
 
-### Changed
-- Release packaging now supports reusing an existing `Build/PE.zip` when publishing a hotfix, instead of forcing a rebuild every time.
-
 ### Fixed
 - Crash report submission now sends the Discord webhook when the report window closes again, matching the intended PE1-era behavior.
 - Office Properties no longer crash while building the Local Sound Macros UI for offices such as migrated FNAF 2 projects.
 - Removed leftover first-run wizard code paths that were no longer part of the launcher startup flow.
 
-## [2.0.0-alpha.5] - 2026-02-02
+## [2.0.0-alpha.5] - 2026-06-25
 
 ### Added
 - First playable office, monitor, and animatronic runtime slice for Phoenix Runtime, including office scene registration, perspective/state resolution, office panning, power/time/flashlight/mask state, monitor overlay sessions, monitor camera switching, and autonomous animatronic pathway execution.
