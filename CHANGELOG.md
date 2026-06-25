@@ -3,6 +3,48 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.6] - 2026-06-25
+
+### Changed
+- Release packaging now supports reusing an existing `Build/PE.zip` when publishing a hotfix, instead of forcing a rebuild every time.
+
+### Fixed
+- Crash report submission now sends the Discord webhook when the report window closes again, matching the intended PE1-era behavior.
+- Office Properties no longer crash while building the Local Sound Macros UI for offices such as migrated FNAF 2 projects.
+- Removed leftover first-run wizard code paths that were no longer part of the launcher startup flow.
+
+## [2.0.0-alpha.5] - 2026-02-02
+
+### Added
+- First playable office, monitor, and animatronic runtime slice for Phoenix Runtime, including office scene registration, perspective/state resolution, office panning, power/time/flashlight/mask state, monitor overlay sessions, monitor camera switching, and autonomous animatronic pathway execution.
+- Runtime fallback assets and builtin office instances for core PE-style gameplay widgets such as Mask, Mute Call, Battery, Toxic Bar, Time Text, Music Box, and bundled default animations like Blip, Camera, Mask, and Static.
+- Office system compilation flow centered around a generated `@OfficeSystem.pxscr`, shared by the PE1 migrator, Studio playtest preflight, and runtime recompilation.
+- Office-local sound macro overrides and expanded office/monitor property dialogs for authoring office ambience, calls, mask sounds, and related gameplay bindings.
+- Custom workspace management in the Studio, including user-defined workspaces, improved workspace switching, and better tab routing.
+- Sidebar context-menu cloning for editor entities and improved grouped-script labels that keep the script tag visible beside scene-role descriptions.
+- Dedicated build/export pipeline window with explicit packaging, GitHub release, and Discord changelog steps.
+- Runtime debug overlay now initializes at startup and can render performance stats with an improved in-game display.
+- Runtime debug overlay now includes expanded scene state coverage, including office and animatronic runtime information.
+- Visual scripting gained new input and lifecycle events (middle mouse, mouse wheel, key events, lifetime ticks, OnDraw, and OnQuit).
+- Visual scripting gained new object interaction events (object hover/click and class-scoped variants).
+
+### Changed
+- PE1 migration now carries more office/monitor behavior into PE2 projects, including better office defaults, monitor conversion, generated office bindings, frame-duration conversion, and asset fallback handling.
+- Playtest and runtime launch flows now treat generated office logic as a compiler-owned system step instead of scattering the behavior directly across editors and runtime entrypoints.
+- Office, monitor, and animatronic editor/runtime contracts were re-audited against PE1 behavior and current PE2 authored data, with broader support for office states, monitor properties, path timing, mask flow, camera switching, and special-menu fallback handling.
+- Studio workspace controls, playtest options, and project property windows were reorganized for clearer separation between engine settings, launch options, and scene-specific authored properties.
+- Expression helper syntax now favors the shorter `sess.`, `game.`, and `scene.` forms and removes legacy parameter helpers.
+- Script block parameter editors now support custom placeholders and required-parameter layouts for function-call blocks.
+- Office editor expression hints now recognize the shorter helper syntax more reliably.
+- Built-in script library examples (Audio Lure, Flashlight Disable, Golden Freddy, Hover Sound, Light Scare, Random Ads) and Premade Assets Endings have been refreshed.
+
+### Fixed
+- Office gameplay cleanup now clears lingering fullscreen effect, jumpscare, and transition animations more reliably during scene changes and overlay transitions.
+- Monitor rendering, monitor transition handling, and mask visibility flow were corrected to better match intended PE office gameplay behavior.
+- Animatronic runtime pacing, movement gating, and office/monitor integration received multiple fixes toward PE1-style behavior and lower-AI consistency.
+- Office/monitor defaults now better match authored expectations for migrated content, including default sizing/alignment behavior and office-level background audio carryover.
+- Code block parameter add button now positions correctly and reacts reliably to clicks.
+
 ## [2.0.0-alpha.4] - 2026-01-27
 
 ### Added
