@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.7] - 2026-06-30
+
+### Added
+- Animatronic editor warnings now flag animatronics that still do not contain any Kill path, including mask-specific guidance for the new runtime kill flow.
+
+### Changed
+- Authored `NightStart` menus now keep their project-authored visuals while still advancing into office gameplay using the special-menu runtime flow.
+
+### Fixed
+- Custom Phoenix windows can now be resized from every edge instead of only the old status-bar corner grip, and normal windows are clamped back onto the available screen area.
+- Launcher project-banner cache paths are now sanitized so project titles with characters like `/` no longer crash filtered banner generation.
+- Crash reports now skip empty default submissions instead of sending blank webhook messages.
+- Editor sprite-door and toggle preview animations now guard against deleted `QGraphicsPixmapItem` references, preventing the recurring wrapped C/C++ deletion crash.
+- Runtime text defaults now line up more closely with the editor by defaulting to Consolas and removing the oversized menu text scaling that caused cut-off menu layouts.
+- Office-path animatronics no longer auto-kill the player, and jumpscare completion now waits on the configured sound or animation path more reliably.
+- PE1 and editor path-type normalization now accept malformed spacing such as `Music  Box` so converted animatronic pathways load correctly again.
+
 ## [2.0.0-alpha.6] - 2026-06-25
 
 ### Fixed
@@ -115,7 +132,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Runtime now installs `PX_Bluescreen.hook` as `sys.excepthook` for runtime to display the bluescreen handler on unhandled exceptions.
 
 ### Removed
-- Removed the `AlwaysOnTop` game object property and related serialization/rendering behavior.
 - Removed legacy Premade Assets menu files at `Scenes/Menus/Main.pxmenu` and `Scenes/Menus/Warning.pxmenu` after the menu folder restructure.
 
 ### Fixed
