@@ -3,6 +3,124 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+## [2.0.0-alpha.13] - 2026-08-05
+
+### Fixed
+- Fixed recurring splash-screen and Script editor crashes caused by native Qt events arriving during widget construction or teardown.
+- Fixed the first pathway created for a new animatronic not being retained.
+- Fixed unsupported graphics drivers and remote display sessions crashing playtests without actionable diagnostics.
+
+## [2.0.0-alpha.12] - 2026-08-04
+
+### Fixed
+- Fixed built-in runtime images, including mask and monitor controls, being absent from packaged playtests.
+- Fixed an early splash-screen mouse event that could crash Phoenix while opening a project.
+
+## [2.0.0-alpha.11] - 2026-08-03
+
+### Fixed
+- Fixed compiled playtests failing at startup because the runtime depended on editor-only `Shared` modules for project shader migration and shader loading.
+- Fixed splash-screen drag and edge-resize events accessing window state before initialization completed.
+- Fixed runtime script diagnostics reaching a Script editor before its code-block view and tree were ready.
+- Fixed the launcher crashing while sorting projects whose folder or `Game.json` was moved or deleted during refresh.
+
+## [2.0.0-alpha.10] - 2026-08-01
+
+### Added
+- Playtest launches now create a per-run diagnostic log and report runtime startup errors, early exits, and nonzero exit codes inside Studio instead of failing silently.
+- Scene scripts opened from menu, office, and monitor editors now offer a Phoenix-styled choice between the current workspace and the Scripts workspace, with separate remembered preferences for each scene type.
+- Explorer object tooltips now identify each object's name and class.
+
+### Changed
+- Project shaders now live under `Assets/Shaders`; existing top-level `Shaders` folders are repaired automatically without overwriting conflicting files.
+- Phoenix in-app prompts and editors, including scene-script creation, now use the styled Phoenix dialog system instead of native Qt dialogs.
+- The Popup instance now hides its complete `Popup` group when closed rather than targeting every child object separately.
+- Scene editors now offer `Hide`, `Faded`, and `Show` modes for hidden objects, defaulting to Faded.
+- Animatronic Kill-path guidance now names its animatronic and only appears while that animatronic's editor tab is active.
+
+### Fixed
+- Fixed projects with complex saved workspaces crashing as Studio maximized by repairing duplicate or stale tab entries, deferring active-tab construction until the window is ready, and keeping inactive tabs lazy-loaded.
+- Fixed forced workspace changes leaving the workspace selector and Studio's active-workspace state out of sync.
+- Fixed Local Sound Macro level rows crashing when the Add button passed Qt's checked state into the sprite-name field.
+- Fixed script block event filters accessing an editor graphics view after Qt had deleted it.
+
+## [2.0.0-alpha.9] - 2026-07-30
+
+### Added
+- Added Phoenix shader packages (`.pxshader`) with the bundled Panorama shader, project and General Library shader folders, editable shader metadata and parameters, and a new Shader Manager under Studio tools.
+- Shader Entity now exposes parameters declared by its selected shader package and applies the selected effect across the completed runtime scene.
+- Added visual-script blocks to enable, disable, toggle, query, and modify Shader Entities at runtime.
+- Office Properties now provides a clearable flashlight keybind and Hold or Toggle input behavior, defaulting to Left Control and allowing script-only control when cleared.
+- Added script-controlled night pausing, including pause, resume, toggle, and paused-state blocks that freeze office time, power, meters, monitor movement, and animatronic simulation.
+- Added horizontal, vertical, and two-axis wraparound office scrolling for authored 360-degree office perspectives.
+- Added the `Power` HUD instance based on Phoenix Engine 1's power text and usage display, plus a script-controlled `Popup` instance.
+- Added a runtime and editor `TextInput` object for focused keyboard entry, placeholders, length limits, submission state, and configurable input styling.
+- Added Music Box path linkage to a target Status Meter so animatronic movement can be stalled by the authored music-box level.
+- Added block cloning and wrapped comment message lines to script and pathway editors, with a pinned in-editor right-click guidance label.
+- Added a launcher License Agreement page with its last revision date.
+- Project file selectors can now browse read-only Phoenix built-in images and switch between Windows-style detail, list, and icon views through the View menu or `Ctrl+Wheel`.
+- Added a playtest Starting Menu option with a dedicated Home-menu toggle and alternate-menu selector.
+- Added the Phoenix Engine 1 Classic sprite collection, fonts, door animations, and music-box artwork as reusable built-in compatibility assets.
+- Added compact Project/Global Font Manager and Script Library tools alongside the Shader Manager.
+- Project Contents can now safely preview bounded text files when a dedicated preview is unavailable.
+
+### Changed
+- Monitor transition animations now render above ordinary scene shaders while still remaining below Shader Entities marked Always On Top.
+- Office ambience now continues uninterrupted when state or perspective changes resolve to the same audio track.
+- Monitor power drain can now use a configurable non-negative usage amount instead of always adding exactly one usage bar.
+- Office and monitor property windows now use broader, clearer property groups without changing perspective or camera property groupings.
+- Important generated scripts such as `@OfficeSystem` can no longer be renamed or deleted through Studio or scene script lists; their Enabled and Tag metadata remain editable through the Phoenix script-properties window.
+- Newly generated `@OfficeSystem` scripts no longer receive a default tag.
+- Text layout now uses pixel-based sizing, multiline measurement, authored horizontal and vertical alignment, and matching editor/runtime anchoring. Missing vertical alignment continues to default to Top.
+- Selecting an installed font now copies its font file into the project when the project does not already contain it.
+- Office-local sound macros now match the main Sound Macros workflow with compact sound rows, icon controls, ordered phone calls, visual animatronic-footstep lists, per-value resets, and Reset All.
+- Project file selectors now populate large folders with lightweight native entries, preserve the rounded card/list/detail presentation, load thumbnails in responsive batches, and switch views without rescanning the directory.
+- Menu, office, and monitor background fields now use the same compact image-or-animation chooser.
+- Crash reports now send the complete TXT attachment as a separate final Discord message after all readable report sections.
+- Opening another Studio sidebar page no longer shows an unnecessary save confirmation.
+- The License Agreement page now uses the same readable panel and typography treatment as the launcher changelog.
+- Added Runius to Special Thanks for originating Path Tags.
+
+### Removed
+- Removed the redundant Command Input built-in instance now that projects can use the dedicated TextInput object.
+
+### Fixed
+- Fixed mask breathing loops continuing or repeatedly restarting after the mask was removed.
+- Fixed generated mask visibility logic hiding Shader Entities while the mask was worn.
+- Fixed Unicode characters in project image filenames preventing those images, including menu backgrounds, from loading on Windows.
+- Fixed the launcher License Agreement inheriting a hardcoded black background from the remote document instead of the active Phoenix theme.
+- Fixed Shader Entity cleanup, editor performance, and scene compositing by making shader entities standalone effect markers instead of Shape objects or scene-sized editor pixmaps.
+- Fixed launcher changelog callbacks accessing deleted Qt labels after navigating away.
+- Fixed project creation callbacks accessing a deleted launcher page and ensured every required project folder, including Shaders, is created.
+- Fixed empty animation playback and invalid frame indexes causing animation-editor crashes.
+- Fixed office state selection callbacks running after their state controls were removed.
+- Fixed office sound selection across different Windows drives.
+- Fixed disabled scene-script actions using bright active-looking icons; protected generated-script actions are now hidden.
+- Fixed script block headers showing a drag cursor without allowing the block to move.
+- Fixed cloned script and pathway block trees losing their relative layout or being placed over existing blocks.
+- Fixed block-editor guidance moving with the scene instead of staying pinned to the editor view.
+- Fixed Output Log crashes caused by missing paths, missing log files, and locale-dependent decoding.
+- Fixed splash-screen background caching crashing when the cache cannot be written, including low-disk conditions.
+- Fixed runtime text objects attempting to load GPU fonts before the raylib window exists.
+- Fixed non-top Shader Entities rendering above Always On Top objects; shader effects now respect the authored overlay boundary.
+- Fixed office mask transition and worn-mask frames covering Always On Top objects.
+- Fixed project file selector wheel scrolling becoming unusually slow after switching between list and icon views.
+
+## [2.0.0-alpha.8] - 2026-07-01
+
+### Added
+- Added bundled `Monitor Opener` and `Clock HUD` office instances for faster monitor-button setup and a default time/night HUD.
+
+### Changed
+- Replaced the old standalone `Time Text` bundled instance with the combined `Clock HUD` setup.
+- Clarified 2D scene object property display names for `Follow Camera`, `Scroll Factor`, and `Always On Top`.
+
+### Fixed
+- The expression editor no longer crashes if Qt sends events before the target editor field is fully attached.
+- Studio notification timer bars now stay aligned to the bottom edge even when taller warnings or guidance popups expand.
+
 ## [2.0.0-alpha.7] - 2026-06-30
 
 ### Added
