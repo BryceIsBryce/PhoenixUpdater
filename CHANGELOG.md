@@ -3,6 +3,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.14] - 2026-08-06
+
+### Added
+- Entity pages now support checkbox-based multi-selection with batch enable, disable, clone, delete, and path-copy actions.
+- Added Phoenix cursor artwork for standard, interactive, text-entry, and waiting states.
+- Studio's Help menu now opens the bundled documentation, API reference, report form, update flow, community support, and application information.
+- Runtime testing tools now use an ImGui interface with live performance graphs, summary cards, office-system inspection, searchable variables, detailed animatronic tracking, console filtering, and reorganized shortcut help.
+
+### Changed
+- Animatronic files are now repaired to the current pathway, night-attribute, property, and local-footstep structure when opened or restored through undo and redo.
+- Playtests now enable testing tools by default and display an initial reminder for the F2 summary, F3 console, and shortcut help.
+- Long-running editor actions now use a shared exception-safe waiting cursor.
+- Playtests now keep the standalone console option disabled and capture runtime output in per-launch diagnostic logs instead.
+
+### Fixed
+- Fixed Animatronic editors closing Phoenix while their lazy workspace tab was still being replaced, particularly after creating the first pathway.
+- Fixed project fonts with family names or OpenType extensions not resolving during runtime playtests.
+- Fixed Fit Width and Fit Height backgrounds allowing a one-pixel camera drift caused by scaled-size rounding.
+- Fixed Stopwatch Equals using milliseconds instead of ticks, skipping values on slow frames, and firing repeatedly between tick updates.
+- Fixed splash screens remaining visible after reaching Finished when their fade animation was interrupted.
+- Fixed assistance and suggestion report attachments always being named as crash reports.
+- Fixed the remaining case where a newly created animatronic pathway opened from stale saved data and appeared empty or failed to open until the animatronic was saved and reopened.
+- Fixed open pathway tabs retaining stale sibling names after pathways were added, renamed, or removed, which could allow conflicting names or invalid pathway targets.
+- Fixed movable scene and pathway tabs displaying the wrong editor or closing the wrong tab after being reordered.
+- Fixed project file selection and scene image drops failing when source files and project storage were on different Windows drives.
+- Fixed delayed scene setup callbacks accessing editors or views after their tabs had already closed.
+- Fixed Phoenix cursors not appearing during the initial splash screen.
+- Fixed runtime ImGui tools rendering below deferred game and effect layers.
+
 ## [2.0.0-alpha.13] - 2026-08-05
 
 ### Fixed
