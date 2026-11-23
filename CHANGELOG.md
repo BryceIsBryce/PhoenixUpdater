@@ -3,6 +3,147 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha.19] - 2026-11-22
+
+### Added
+- Added more animatronic path controls for waiting, chance, defenses, sound cues, and pathway selection.
+- Added script breakpoints with continue and step controls for debug playtests.
+- Added shared warning and error summaries that locate affected scripts and paths.
+- Added a pathway overview for navigating larger animatronic routes.
+- Added active playtest controls to return, stop, or restart a session without launching duplicates.
+- Added scene-editor centering actions and grouped layers for overlay objects.
+- Added Game Jolt support for player login, trophies, scoreboards, cloud saves, and sessions, with visual scripting blocks.
+- Added a project-wide Frame Rate Limit for playtests and exported games.
+- Added Escape-key dismissal for closable dialogs.
+- Added reproducible runtime seeds for testing, with independent gameplay randomness.
+
+### Changed
+- Reworked animatronic pathways with structured routes, clearer branches, simpler properties, and a step-through preview.
+- Improved path editing with inline comments, project-aware inputs, jump connections, and animated expanding cards.
+- Reduced project-opening overhead by loading image previews on demand.
+- Improved loading and responsiveness of large entity pages, including animation lists.
+- Reduced script-editor loading time and unnecessary block-layout work.
+- Kept recent entities and favorites with workspace data and made saved entity paths portable between project locations.
+- Improved entity pages with collapsible groups, context-menu buttons, and adaptive text layouts.
+- Improved launcher project cards with responsive layouts and more readable descriptions.
+- Refined playtest setup and added title-bar window menus.
+- Expanded light-theme support and improved live recoloring across Studio.
+- Refreshed release highlights with new feature previews and compact page navigation.
+- Improved script warning and error outlines to follow block shapes more clearly.
+- Standardized shared canvas settings across scene, script, and pathway editors.
+- Improved hover guidance and help messages throughout Studio.
+- Improved Studio responsiveness when browsing entities and navigating edit history.
+- Reduced repeated work during runtime startup, scripting, and text rendering.
+- Improved office gameplay performance and reduced unnecessary asset and rendering work.
+- Improved video playback and deferred video dependencies until needed.
+- Improved the Phoenix startup splash with loading feedback and a smoother transition into the game.
+
+### Fixed
+- Corrected Always On Top ordering in scene editors.
+- Fixed file-selector item hit areas across view modes.
+- Fixed scene-object selection through transparent sprite padding and empty annotation space.
+- Fixed theme changes triggering scene-edit callbacks.
+- Fixed release highlights being skipped during launcher startup and kept viewed history specific to each version.
+- Fixed missing selection feedback in the script block library.
+- Fixed font discovery on non-Windows systems.
+- Fixed undo/redo for changes that remove multiple items.
+- Fixed initialization and cleanup issues, including timers and audio while the Game Jolt login panel is open.
+
+## [2.0.0-alpha.18] - 2026-11-15
+
+### Added
+- Added configurable power consumption for doors and toggle controls.
+
+### Fixed
+- Fixed update detection and updater access in the launcher.
+- Improved office power setup and objects shared across perspectives.
+- Improved export reliability.
+
+### Changed
+- Simplified scrolling-boundary controls.
+
+## [2.0.0-alpha.17] - 2026-11-15
+
+### Added
+- Added a brief "MADE WITH" runtime splash, including exported games, with the Phoenix logo, bold Garet wordmark in brand colors, and fade-in/out.
+- Added an exporter notice recommending the full 2.0 release before distributing games while runtime optimization and bug fixing continue.
+- Added suggested Phoenix object attributes, including a per-shader option to skip jumpscares while respecting project shader settings.
+- Added scrolling boundaries with vertically arranged controls, equal-thickness draggable viewport guides, and Accept/Cancel preview editing.
+- Added a compact global-object toggle column to the scene Explorer.
+- Added cached single-file game EXE export with project-name filenames, an ExportedFiles default destination, progress, cancellation, and optional signing.
+- Added asynchronous update checks with distinct certificate, timeout, connection, and server feedback.
+- Added Light/Dark theme modes, simplified theme metadata, and Daylight and Parchment light themes.
+
+### Changed
+- Simplified the game export dialog, increased its height, and added an option to open the output folder after successful export.
+- Exported games use a lightweight Windows launcher that reuses a private build-specific cache after first launch, instead of extracting the entire project on every run.
+- Arrange actions distribute script stacks and pathway cards across width-aware columns without changing execution order.
+- Comment regions resize from every edge and corner, snap to the canvas grid, and expand with enclosed blocks. Their wider, centered creation dialog uses a compact color swatch and picker.
+- Favorite and Recent menus now include entities beyond scenes, grouped under entity-type headers instead of type suffixes.
+- Music Box meter targets offer project meter choices and expression editing.
+- Newly created special menus and animations start with their built-in content rather than empty entities.
+- Scene editors now offer Zoom Around Cursor alongside the other canvas editors.
+- Hovered scene objects have an animated gradient outline; the script canvas no longer displays the Event Stacks heading.
+- Python and raylib random generators receive independent process-start entropy without reseeding each night.
+- Recognized local, session, and game references use scoped value blocks, including special-menu scripts.
+- Added wait-cursor feedback during blocking page and theme operations, and Ctrl+W for closing the current tab.
+
+### Fixed
+- Fixed selection outlines not following scene undo and redo.
+- Fixed right-clicking selected scene objects discarding the rest of a multi-selection.
+- Disabled menu commands that have no implementation.
+- Fixed canvas settings buttons reopening their panels instead of toggling them, and expression dialogs appearing inside canvas views.
+
+## [2.0.0-alpha.16] - 2026-11-05
+
+### Added
+- Added a setup window for choosing your theme, autosave behavior, and audio-preview preferences when starting Phoenix for the first time.
+- Added a What's New window in the launcher with screenshots and short introductions to major additions.
+- Added variable, list, and reusable custom-block creation directly in the script block library.
+- Added inline expression editing with suggestions and syntax/type feedback. The advanced expression editor remains available when needed.
+- Added colored, resizable comment regions with an option to move enclosed blocks together.
+- Added playback previews for animation assets in Contents.
+- Added a project option to make newly created office and monitor objects global by default.
+- Added Project Settings access from the Game page and special-menu/animation name guidance when creating entities.
+- Added Ko-fi donation links to the launcher sidebar and bottom bar.
+
+### Changed
+- Redesigned the script editor around Scratch-style blocks, connected stacks, visible nested actions, and shaped parameter inputs.
+- Replaced the old two-column script parameters with inline inputs. File parameters open the project file selector, and sound channels offer automatic selection or a specific channel number.
+- Moved the block library into a resizable right-hand panel with categories, search, favorites, recent blocks, and block-shaped previews.
+- Improved block insertion and dragging, including previews, moving connected stacks together, and dropping blocks back into the library to remove them.
+- Block context menus now open directly on the canvas. Comments edit beside their blocks instead of in a separate dialog.
+- Script and pathway editors share a scrollable, vertically resizable settings panel for grids, snapping, navigation, comments, and quick actions. Grid snapping starts enabled.
+- Improved direct canvas manipulation with grouped resizing and rotation, larger handle hit areas, and clearer cursor feedback.
+- Theme changes now apply to open windows immediately without reopening editors.
+- Refreshed shared controls and entity cards with theme-based gradients and optional panel and hover animations.
+- Entity pages now show item counts and labeled add actions. Selection checkboxes stay centered in the main row when cards expand, and favorite icons sit at the right.
+- Added Ctrl/Shift entity selection and Select All/Deselect All actions alongside the existing batch tools.
+- Reworked saving to avoid redundant writes and preserve the previous file if a write fails. Autosave only processes changed editors and keeps a bounded set of recovery copies.
+- Existing scripts adapt to the updated inputs when opened, without rewriting their files until saved. Older Comment blocks remain supported but are no longer offered in the library.
+- Reduced repeated work in block dragging, undo history, settings access, and editor rendering. Hidden previews and animations stop doing unnecessary work.
+
+### Fixed
+- Fixed entity image backgrounds becoming corrupted because they referenced temporary image memory.
+- Fixed notification animations overlapping during dismissal or repositioning, and their timers continuing after the parent window closed.
+- Fixed Studio undo/redo shortcuts being intercepted by focused editor controls when no local text history was available.
+- Fixed cross-script function calls accessing the caller's local variables, and function inputs overwriting local values after returning.
+- Fixed quoted custom-function names failing lookup and disabled function definitions still being callable.
+- Fixed failed saves being reported as successful and tab-change autosave running during edits instead of when switching tabs.
+- Fixed crashes involving Sound Macro browsing, door-animation previews, community-script parameters, and entity description limits.
+- Fixed corrupt project banners, unreadable splash images, and full image-cache drives preventing parts of Phoenix from opening.
+- Fixed Game Information failing when project-file timestamps were unavailable, and asset-folder actions failing without a readable error.
+- Fixed office script object choices omitting other perspectives and monitor script choices missing cameras.
+- Fixed single-animatronic camera states taking precedence over matching multi-animatronic states.
+- Fixed existing lowercase project script folders not being normalized to `Scripts`, while preserving conflicting folders.
+
+## [2.0.0-alpha.15] - 2026-08-07
+
+### Fixed
+- Fixed Save Current crashing when triggered from Qt actions or tab save buttons.
+- Fixed animated pathway and script connection lines continuing to update after their graphics items were removed.
+- Fixed empty script prompts continuing to animate after their editor or graphics item was destroyed.
+
 ## [2.0.0-alpha.14] - 2026-08-06
 
 ### Added
